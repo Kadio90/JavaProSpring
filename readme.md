@@ -9,22 +9,73 @@ time="2025-06-18T15:52:11+05:00" level=warning msg="C:\\Users\\anton\\IdeaProjec
 ### Запуск приложения:
 ```
 Создание пользователей...
-Создан: User{id=1, username='Антон'}
-Создан: User{id=2, username='Алиса'}
+Hibernate: 
+    insert 
+    into
+        users
+        (username) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        users
+        (username) 
+    values
+        (?)
+Создан: User{id=4, username='Антон'}
+Создан: User{id=5, username='Алиса'}
 
 Получение всех пользователей:
-User{id=1, username='Антон'}
-User{id=2, username='Алиса'}
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.username 
+    from
+        users u1_0
+User{id=1, username='Алексей'}
+User{id=2, username='Анастасия'}
+User{id=3, username='Артем'}
+User{id=4, username='Антон'}
+User{id=5, username='Алиса'}
 
 Получение пользователя по ID...
-Найден: User{id=2, username='Алиса'}
-Не найден user с ID:987654
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Найден: User{id=4, username='Антон'}
 
 Удаление пользователя...
-Пользователь '1' удален: true
-Пользователь '987654' удален: false
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    delete 
+    from
+        users 
+    where
+        id=?
+Пользователь удален: true
 
-Проверка удаления пользователей...
-Пользователь существует: User{id=2, username='Алиса'}
+Проверка удаления:
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Пользователь не найден (корректное удаление)
 ```
 
