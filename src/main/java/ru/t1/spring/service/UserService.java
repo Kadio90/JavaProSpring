@@ -1,32 +1,43 @@
 package ru.t1.spring.service;
 
+import lombok.AllArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import ru.t1.spring.dto.User;
-import ru.t1.spring.dao.UserDao;
+import org.springframework.transaction.annotation.Transactional;
+
+import ru.t1.spring.entity.User;
+import ru.t1.spring.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class UserService {
-    private final UserDao userDao;
+    private final UserRepository userRepository;
 
-    public UserService(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
+    @Transactional
     public User create(String username) {
-        return userDao.create(new User(username));
+        User user = new User();
+        user.setUsername(username);
+        return userRepository.save(user);
     }
 
-    public boolean  deleteById(Long id) {
-        return userDao.delete(id);
+    @Transactional
+    public boolean deleteById(Long id) {
+        try {
+            userRepository.deleteById(id);
+            return true;
+        } catch (EmptyResultDataAccessException e) {
+            return false;
+        }
     }
 
-    public User getById(Long id) {
-        return userDao.getById(id);
+    public Optional<User> getById(Long id) {
+        return userRepository.findById(id);
     }
 
     public List<User> getAllUsers() {
-        return userDao.findAll();
+        return userRepository.findAll();
     }
 }
