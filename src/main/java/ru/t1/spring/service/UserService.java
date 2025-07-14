@@ -1,5 +1,6 @@
 package ru.t1.spring.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,6 @@ import ru.t1.spring.entity.User;
 import ru.t1.spring.repository.UserRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -33,8 +33,8 @@ public class UserService {
         }
     }
 
-    public Optional<User> getById(Long id) {
-        return userRepository.findById(id);
+    public User getById(Long id) {
+        return userRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
     public List<User> getAllUsers() {

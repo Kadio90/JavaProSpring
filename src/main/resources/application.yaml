@@ -13,6 +13,11 @@ spring:
       hibernate:
         format_sql: true
 
+server:
+  servlet:
+    context-path: "/product-app"
+  port: 8081
+
 liquibase:
   change-log: classpath:db/changelog/db.changelog-master.yaml
   enabled: true
