@@ -1,0 +1,83 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: Zyurkalov_Anton
+      changes:
+        - createTable:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: account_number
+                  type: VARCHAR(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: balance
+                  type: NUMERIC(19,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    references: users(id)
+                    foreignKeyName: fk_product_user
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: account_number
+                  value: "40817810099910004312"
+              - column:
+                  name: balance
+                  value: "1000.00"
+              - column:
+                  name: type
+                  value: "ACCOUNT"
+              - column:
+                  name: user_id
+                  value: "1"
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: account_number
+                  value: "40817810099910004313"
+              - column:
+                  name: balance
+                  value: "500.00"
+              - column:
+                  name: type
+                  value: "CARD"
+              - column:
+                  name: user_id
+                  value: "1"
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: account_number
+                  value: "40817810099910004314"
+              - column:
+                  name: balance
+                  value: "2000.00"
+              - column:
+                  name: type
+                  value: "ACCOUNT"
+              - column:
+                  name: user_id
+                  value: "2"
