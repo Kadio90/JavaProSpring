@@ -15,9 +15,14 @@ spring:
 
 server:
   servlet:
-    context-path: "/product-app"
-  port: 8081
+    context-path: "/payment-app"
+  port: 8082
 
 liquibase:
   change-log: classpath:db/changelog/db.changelog-master.yaml
   enabled: true
+
+product-service:
+  base-url: "http://localhost:8081/product-app/api/v1/products"
+  product-by-id-uri: "/{id}"
+  products-by-user-uri: "/user/{userId}"
