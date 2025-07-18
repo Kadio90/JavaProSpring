@@ -1,8 +1,8 @@
-package ru.t1.spring.repository;
+package spring.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.t1.spring.entity.User;
+import spring.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

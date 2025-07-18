@@ -1,12 +1,12 @@
-package ru.t1.spring.controller;
+package spring.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.t1.spring.dto.ProductCreateRequestDTO;
-import ru.t1.spring.dto.ProductResponceDTO;
-import ru.t1.spring.mapper.ProductMapper;
-import ru.t1.spring.service.ProductService;
+import spring.dto.ProductCreateRequestDTO;
+import spring.dto.ProductResponceDTO;
+import spring.mapper.ProductMapper;
+import spring.service.ProductService;
 
 import java.util.List;
 

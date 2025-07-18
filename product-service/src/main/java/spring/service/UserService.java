@@ -1,4 +1,4 @@
-package ru.t1.spring.service;
+package spring.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
@@ -6,8 +6,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.t1.spring.entity.User;
-import ru.t1.spring.repository.UserRepository;
+import spring.entity.User;
+import spring.repository.UserRepository;
 
 import java.util.List;
 

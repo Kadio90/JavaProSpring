@@ -1,13 +1,13 @@
-package ru.t1.spring.service;
+package spring.service;
 
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.t1.spring.entity.Product;
-import ru.t1.spring.entity.User;
-import ru.t1.spring.enums.ProductType;
-import ru.t1.spring.repository.ProductRepository;
+import spring.entity.Product;
+import spring.entity.User;
+import spring.enums.ProductType;
+import spring.repository.ProductRepository;
+import spring.exception.ProductNotFoundException;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -37,7 +37,7 @@ public class ProductService {
     }
 
     public Product getById(Long id) {
-        return productRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found with ID: " + id));
     }
 
     public List<Product> getAllByUserId(Long userId) {

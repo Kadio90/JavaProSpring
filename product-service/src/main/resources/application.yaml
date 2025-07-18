@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: admin
+    password: secret
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  servlet:
+    context-path: "/product-app"
+  port: 8081
+
+liquibase:
+  change-log: classpath:db/changelog/db.changelog-master.yaml
+  enabled: true

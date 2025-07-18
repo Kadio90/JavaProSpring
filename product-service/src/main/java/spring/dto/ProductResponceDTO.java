@@ -1,8 +1,8 @@
-package ru.t1.spring.dto;
+package spring.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import ru.t1.spring.enums.ProductType;
+import spring.enums.ProductType;
 
 import java.math.BigDecimal;
 

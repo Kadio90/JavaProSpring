@@ -1,4 +1,4 @@
-package ru.t1.spring.entity;
+package spring.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
