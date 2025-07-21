@@ -12,6 +12,8 @@
     <modules>
         <module>product-service</module>
         <module>payment-core</module>
+        <module>limit-service</module>
+
     </modules>
 
     <properties>
